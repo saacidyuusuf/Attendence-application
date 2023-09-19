@@ -3,6 +3,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import supabase from "../components/supabase";
 import Nav from "../components/Nav";
+import ListStudent from "../components/ListStudent";
 
 const Students = () => {
   const [students, setStudents] = useState(null);
@@ -11,7 +12,7 @@ const Students = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const { data, error } = await supabase.from("students").select("*");
+        const { data, error } = await supabase.from("F4").select("*");
         if (error) {
           setError(error);
           setStudents(null);
@@ -33,24 +34,9 @@ const Students = () => {
       <Nav />
       <div className="studentHaye">
         <h1 className="text-center">Student List</h1>
-        <div className="columnHaye">
-          <h1>Id</h1>
-          <h1>Name</h1>
-          <h1>Check</h1>
-        </div>
-        {students ? (
-          students.map((student) => (
-            <table className="rowHaye">
-              <th>
-                <p>{student.id}</p>
-                <p> {student.name}</p>
-                <p>button</p>
-              </th>
-            </table>
-          ))
-        ) : (
-          <p>Loading....</p>
-        )}
+        {students ?
+         <ListStudent  students={students} /> : 
+         <span class="loader"></span>}
       </div>
     </>
   );

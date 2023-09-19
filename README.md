@@ -35,3 +35,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 
 i'm using nextjs13 and the router is the name of your folder and i have a link that has that router name kalled Auth/login and it does not work it gives you 404 page this is link
+
+ {students ?
+         <ListStudent  students={students} /> : 
+        <p>Loading....</p>}

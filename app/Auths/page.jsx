@@ -58,7 +58,7 @@ const Login = () => {
           <FcGoogle className="icon" /> Sign in with Google
         </button>
         <button onClick={facebookProvider}>
-          <AiFillFacebook className="icon" /> Sign in with Facebook
+          <AiFillFacebook className="icon" />Sign in with Facebook
         </button>
       </div>
     </div>

@@ -29,7 +29,7 @@ nav ul li {
 }
 
 .logo {
-  margin: 0.35rem;
+  margin: 2rem 0.50rem;
   color: white;
   font-size: 1.8rem;
 }
@@ -88,7 +88,8 @@ button {
 }
 
 .img {
-  margin-top: 0.35rem;
+  width: 80%;
+  margin-top: 1.5rem;
   border-radius: 15px;
 }
 
@@ -103,6 +104,10 @@ button {
   margin-top: 1.3rem;
 }
 
+.dashIcon{
+  margin-top: 0.32rem;
+}
+
 .signout {
   width: 19%;
   margin: auto;
@@ -113,30 +118,78 @@ button {
 
 .signoutDisplay {
   position: absolute;
-  top: 9.5%;
-  right: 0.5%;
-  width: 20%;
+  top: 11%;
+  right: 0.8%;
+  width: 10%;
   background-color: black;
   border-radius: 6px;
+  /* justify-content: flex-end;
+  flex-direction: column;
+  align-items:flex-end; */
+  /* display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  justify-self:end; */
 }
 
 .signoutDisplay button {
+  display: flex;
   background: none;
   color: white;
   margin-top: 0;
+}
+
+.menu {
+  display: none;
 }
 
 .profilePerson {
   margin-top: 0;
 }
 
+.displayBlock {
+  display: block;
+}
+
+
 @media (max-width: 900px) {
+  .LinkProfile {
+    display: none;
+  }
   .login {
     width: 80%;
+  }
+  .MenuOpen {
+    display: block;
+    color: white;
+    font-size: 1.8rem;
+    margin: 1rem 0.4rem;
+  }
+  .menu {
+    display: block;
+    color: white;
+    font-size: 1.8rem;
+    margin: 1rem 0.4rem;
+  }
+  .signoutDisplay {
+    position: absolute;
+    top: 11%;
+    right: 0.8%;
+    width: 25%;
+    background-color: black;
+    border-radius: 6px;
+  }
+  .img{
+    width: 40%;
+  }
+  .logo{
+    margin: 1rem 0.40rem;
   }
 }
 
 /* classes */
+
+
 
 .Classes {
   width: 75%;
@@ -206,3 +259,217 @@ button {
     width: 90%;
   }
 }
+
+.btnsDash {
+  width: 70%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-radius: 12px;
+  gap: 2rem;
+}
+
+.buttonDash {
+  background: none;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.class {
+  margin-bottom: 1rem;
+}
+
+.dashIcons {
+  font-size: 3rem;
+  background-color: black;
+  color: white;
+}
+
+@media (max-width: 900px) {
+  .btnsDash {
+    display: none;
+  }
+}
+
+.listStudents {
+  width: 90%;
+  text-align: center;
+  background-color: rgb(236, 231, 231);
+  margin: auto;
+  margin-bottom: 2rem;
+}
+
+.one{
+  font-size: 3rem;
+}
+
+.infoClass {
+  margin-top: 1.8rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.total {
+  width: 90%;
+  margin: auto;
+  margin-top: 1rem;
+  text-align: left;
+  font-weight: 800;
+}
+
+.total span{
+  font-family:'Roboto', sans-serif ;
+  background-color: var(--main-color);
+  padding: 8px;
+  border-radius: 10px;
+  color: white;
+}
+
+
+
+.tableTop{
+  width: 95%;
+  margin: auto;
+  display: flex;
+  justify-content: start;
+  gap: 5rem;
+  flex-direction: row;
+  font-weight: bolder;
+  margin-top: 1.4rem;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.tableNames{
+  width: 95%;
+  margin: auto;
+  display: flex;
+  justify-content: start;
+  gap: 5rem;
+}
+
+
+
+.tableNames{
+  font-size: 1.4rem;
+}
+
+.check{
+  margin-left: 30rem;
+  font-size: 1.4rem;
+  
+} 
+
+/* .check:checked{
+  visibility: hidden;
+  margin-left: 30rem;
+} */
+
+@media (max-width: 900px) {
+  .check{
+    margin-left: 10rem;
+    font-size: 1.4rem;
+  }
+}
+
+
+/* Teacher profile */
+
+.Teacher{
+  margin-top: 2rem;
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  align-content: center;
+  place-items: center;
+}
+
+.Teacherinfo1{
+  border: 1px solid gray;
+  border-radius: 0.40rem;
+}
+
+.TeacherRoleContact{
+  border: 1px solid gray;
+  padding: 2rem;
+  text-align: left;
+  border-radius: 1rem;
+  justify-content: start;
+}
+
+.teacherImg{
+  border-radius: 0.40rem;
+}
+
+
+@media (max-width: 900px) {
+  .Teacher{
+    grid-template-columns: repeat(1,1fr);
+    gap: 1rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Loader */
+
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  place-content: center;
+  place-items: center;
+  margin-top: 10rem;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 4px solid var(--main-color);
+  border-right: 4px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader::after {
+  content: '';  
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border-left: 4px solid #FF3D00;
+  border-bottom: 4px solid transparent;
+  animation: rotation 0.5s linear infinite reverse;
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
