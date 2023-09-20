@@ -22,7 +22,7 @@ const DashBtns = () => {
             Dashboard
           </button>
         </Link>
-        <button className="buttonDash class">
+        <button className="buttonDash classDash">
           <BiCoinStack className="dashIcons" />
           Classes
         </button>
