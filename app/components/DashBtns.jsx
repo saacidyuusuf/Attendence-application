@@ -9,8 +9,10 @@ import {
 } from "react-icons/bi";
 import { BsFillPersonFill } from "react-icons/bs";
 import Link from "next/link";
-
+/* XMLHttpRequestEventTarget
+ */
 const DashBtns = () => {
+ 
   return (
     <div className="dash">
       <div className="btnsDash">
@@ -28,18 +30,24 @@ const DashBtns = () => {
           <BiBookOpen className="dashIcons" />
           Student Attendence
         </button>
+        <Link href='/dashboard/timetable/TimeTable'>
         <button className="buttonDash">
           <BiSolidDashboard className="dashIcons" />
           TimeTable Period
         </button>
+        </Link>
+        <Link href='/dashboard/attendenceweek/AttendenceWeek'>
         <button className="buttonDash">
           <BiCalendarWeek className="dashIcons" />
           Attendence Week
         </button>
+        </Link>
+        <Link href='/dashboard/attendencerate/AttendenceRate'>
         <button className="buttonDash">
           <BiBarChart className="dashIcons" />
           Attendence Rate
         </button>
+        </Link>
         <Link href='/dashboard/TeacherProfile'>
         <button className="buttonDash">
           <BsFillPersonFill className="dashIcons" />

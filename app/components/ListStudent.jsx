@@ -6,7 +6,7 @@ const ListStudent = ({students}) => {
       <h1 className="one">Student Attendence</h1>
       <div className="infoClass">
         <h1>
-          Class: <span>F4</span>
+          Class: <span>{students.Class}</span>
         </h1>
         <h1>
           Subject: <span>Xisaab</span>
