@@ -1,24 +1,29 @@
 "use client";
 import React from "react";
 import { useState, useEffect } from "react";
-import supabase from "../components/supabase";
 import Nav from "../components/Nav";
 import ListStudent from "../components/ListStudent";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
 const Students = () => {
   const [students, setStudents] = useState(null);
   const [error, setError] = useState();
-
+  const supabase = createClientComponentClient();
+ 
   useEffect(() => {
     async function fetchData() {
       try {
-        const { data, error } = await supabase.from("F2").select("*");
+        const { data, error } = await supabase.from("f2students").select("*");
         if (error) {
           setError(error);
           setStudents(null);
+          console.log(error)
+
         } else {
           setStudents(data);
           setError(null);
+          console.log(data);
+
         }
       } catch (error) {
         console.error(error);

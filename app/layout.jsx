@@ -2,12 +2,11 @@ import "./globals.css";
 import { Space_Grotesk } from "next/font/google";
 import Nav from "@/app/components/Nav";
 
-const lato = Space_Grotesk(
-  {
-    weight: ['300', '700'],
-    subsets: ['latin'],
-  }
-)
+const lato = Space_Grotesk({
+  weight: ["300", "700"],
+  subsets: ["latin"],
+});
+
 /* Rubik look good Kanit to Space_Grotesk to*/
 
 export const metadata = {
@@ -19,7 +18,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={lato.className}>
-          <main className="container">{children}</main>
+        <main className="container">{children}</main>
       </body>
     </html>
   );

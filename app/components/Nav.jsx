@@ -1,20 +1,24 @@
 "use client";
 import Link from "next/link";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "@/utills/firebase";
 import Image from "next/image";
 import { useState } from "react";
 import { FiMenu } from "react-icons/fi";
 import DashBtns from "./DashBtns";
+import { useUser } from "@supabase/auth-helpers-react";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { useRouter } from "next/navigation";
 
 export default function Nav() {
-  const [user, loading] = useAuthState(auth);
-  const [profile, setprofile] = useState(false);
-
-  if(loading){
-    <span class="loader"></span>
+  const supabase = createClientComponentClient()
+  const user = supabase.auth.getUser()
+  const [profile, setProfile] = useState(false);
+  const router = useRouter()
+  
+  const handleSignOut = async () => {
+    await supabase.auth.signOut()
+    router.refresh()
   }
- 
+  
   return (
     <header className="header">
       <nav>
@@ -23,55 +27,30 @@ export default function Nav() {
         </Link>
         <DashBtns />
         <ul>
-          {!user && (
-            <Link href="/Auths" className="auth">
-              Join now
-            </Link>
-          )}
-          <FiMenu
-            onClick={() => setprofile(!profile)}
-            className={profile !== true ? "menu" : "MenuOpen"}
-          />
           {user && (
             <div>
-              <Link href='' className="LinkProfile">
-                <Image
-                  src={user.photoURL}
-                  alt="avator"
-                  width={80}
-                  height={80}
-                  referrerPolicy="no-referrer"
-                  className="img"
-                  onClick={() => setprofile(!profile)}
-                />
-              </Link>
               {profile && (
                 <>
                   <div className="signoutDisplay">
-                  <Link
-                    href="/dashboard"
-                    className={profile === true ? "displayBlock" : "LinkProfile"}
-                  >
-                    <Image
-                      src={user.photoURL}
-                      alt="avator"
-                      width={50}
-                      height={50}
-                      referrerPolicy="no-referrer"
-                      className="img"
-                      onClick={() => setprofile(!profile)}
-                    />
-                  </Link>
                     <button onClick={() => {}} className="profilePerson">
                       Profile
                     </button>
-{/*                     <DashBtns/>
- */}                    <button onClick={() => auth.signOut()}>Sign out</button>
+                    <button onClick={handleSignOut()}>Sign out</button>
                   </div>
                 </>
               )}
             </div>
           )}
+
+          {!user && (
+            <Link href="/dashboard" className="auth">
+              join know
+            </Link>
+          )}
+          <FiMenu
+            onClick={() => setProfile(!profile)}
+            className={profile !== true ? "menu" : "MenuOpen"}
+          />
         </ul>
       </nav>
     </header>

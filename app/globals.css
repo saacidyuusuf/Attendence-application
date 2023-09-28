@@ -65,10 +65,13 @@ nav ul li {
 .login span {
   color: white;
 }
-.icons {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
+.inputContainer input {
+  display: block;
+  width: 80%;
+  margin: auto;
+  margin-top: 1rem;
+  border-radius: 12px;
 }
 
 button {
@@ -78,10 +81,9 @@ button {
   margin-top: 1.3rem;
   padding: 10px;
   border-radius: 12px;
-  display: flex;
+
   gap: 1rem;
   font-size: 1.2rem;
-  align-items: flex-start;
 }
 
 .icon {
@@ -190,20 +192,25 @@ button {
 /* classes */
 
 .Classes {
-  width: 75%;
-  margin: auto;
-  margin-top: 3rem;
+  width: 60%;
   display: grid;
+  margin-top: 3rem;
+  /*   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  */
   gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 }
 
 .class {
+  width: 80%;
+  margin: auto;
   border: 1px solid var(--border-color);
   padding: 1rem;
   border-radius: 10px;
   text-align: center;
   box-shadow: rgba(0, 0, 0, 0.2);
+}
+.class h1,p{
+  margin-bottom: 0.40rem;
 }
 
 .class h2 {
@@ -215,7 +222,7 @@ button {
   justify-content: center;
 }
 
-.class h1{
+.class h1 {
   font-weight: bolder;
   color: var(--main-color);
   font-size: 2rem;
@@ -399,28 +406,28 @@ button {
   place-items: center;
 }
 
-.TeacherRoleContact{
+.TeacherRoleContact {
   display: grid;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: repeat(2, 1fr);
   column-gap: 2rem;
-  row-gap: 0.40rem;
+  row-gap: 0.4rem;
 }
 
-.Teacherinfo1 h1{
+.Teacherinfo1 h1 {
   font-size: 1.8rem;
   font-weight: bold;
 }
 
-.Teacherinfo1 span{
+.Teacherinfo1 span {
   font-weight: 500;
   font-size: 1.4rem;
 }
 
-.teacherinfo2 h1{
+.teacherinfo2 h1 {
   font-weight: bolder;
 }
 
-.teacherinfo2 span{
+.teacherinfo2 span {
   font-weight: 500;
 }
 
@@ -436,12 +443,18 @@ button {
 }
 
 @media (max-width: 900px) {
-  .Teacher{
+  .Teacher {
     width: 80%;
   }
 }
 
 /* Loader */
+.centerLoading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 
 .center {
   display: flex;
@@ -495,7 +508,7 @@ button {
   border-radius: 1rem;
 }
 
-.TimeTable h1{
+.TimeTable h1 {
   font-weight: bold;
 }
 
@@ -514,7 +527,7 @@ button {
   font-weight: 400;
 }
 
-.TimetableTop{
+.TimetableTop {
   width: 84%;
   margin: auto;
   display: flex;
@@ -530,7 +543,7 @@ button {
   color: white;
 }
 
-.bodyTable{
+.bodyTable {
   width: 84%;
   margin: auto;
   margin-top: 1rem;
@@ -541,64 +554,64 @@ button {
   white-space: nowrap;
 }
 
-.infoTimeTable{
+.infoTimeTable {
   margin-top: 1.8rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   gap: 2rem;
 }
 
-
 @media (max-width: 900px) {
-  .TimeTable{
+  .TimeTable {
     width: 95%;
   }
-  .bodyTable{
+  .bodyTable {
     gap: 6rem;
   }
-  .TimetableTop{
+  .TimetableTop {
     width: 90%;
   }
 }
 
 /* Attendence week */
 
-.attendenceweek{
+.attendenceweek {
   width: 80%;
   margin: auto;
   text-align: center;
 }
 
-.attendenceweek h1{
+.attendenceweek h1 {
   font-size: 1.8rem;
   font-weight: bold;
 }
 
-.attendenceHaye{
+.attendenceHaye {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(3, 1fr);
   margin-top: 1.5rem;
   border: 1px solid gainsboro;
   border-radius: 10px;
 }
 
-.attendenceHaye h2{
+.attendenceHaye h2 {
   font-size: 1.4rem;
 }
 
-.attendenceInfo{
+.attendenceInfo {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(3, 1fr);
   margin-top: 1rem;
   gap: 2rem;
 }
 
-.infos select, input{
-  padding: 0.50rem 1rem;
+.infos select,
+input {
+  padding: 0.5rem 1rem;
   border: 1px solid gainsboro;
 }
 
-.generate{
+.generate {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -609,28 +622,28 @@ button {
   color: white;
 }
 
-.weekHaye{
+.weekHaye {
   text-align: center;
 }
 
-.weekHaye h1{
+.weekHaye h1 {
   font-weight: 800;
   font-size: 1.8rem;
 }
 
-.weekInfo{
+.weekInfo {
   width: 80%;
   margin: auto;
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   background-color: var(--main-color);
   padding: 8px 12px;
-  border-radius: 0.50rem;
+  border-radius: 0.5rem;
   color: white;
 }
 
-.weekList{
+.weekList {
   width: 80%;
   margin: auto;
   display: flex;
@@ -638,11 +651,11 @@ button {
   gap: 15rem;
 }
 
-.weekList p{
+.weekList p {
   font-weight: bold;
 }
 
-.weekListNames{
+.weekListNames {
   width: 80%;
   margin: auto;
   display: flex;
@@ -651,54 +664,44 @@ button {
   margin-top: 1rem;
 }
 
-
-
 @media (max-width: 900px) {
-  .generate{
+  .generate {
     width: 22%;
   }
 }
 
 /* attendence rate */
 
-.ratingHaye{
+.ratingHaye {
   text-align: center;
 }
 
-.ratingHaye h1{
+.ratingHaye h1 {
   margin-top: 1.4rem;
   font-size: 1.8rem;
   font-weight: 800;
 }
 
-.rateInfo{
+.rateInfo {
   width: 98%;
   margin: auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  place-self:initial;
+  place-self: initial;
   justify-self: start;
   margin-top: 1rem;
   border: 1px solid var(--border-color);
   padding: 12px 4px;
-  border-radius: 0.40rem;
+  border-radius: 0.4rem;
 }
 
-.rateInfo p{
+.rateInfo p {
   font-weight: bold;
 }
 
-.rateList{
+.rateList {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  place-self:initial;
+  place-self: initial;
   justify-self: start;
 }
-
-
-
-
-
-
-
-

@@ -2,12 +2,10 @@
 
 import Nav from "@/app/components/Nav";
 import Image from "next/image";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "@/utills/firebase";
+import { useUser } from "@supabase/auth-helpers-react";
 
 const TeacherProfile = () => {
-  const [user, loading] = useAuthState(auth);
-
+  const user = useUser();
   return (
     <>
       <Nav />
@@ -16,7 +14,7 @@ const TeacherProfile = () => {
           <div className="Teacherinfo1">
             {user && (
               <Image
-                src={user.photoURL}
+                src={user.identities}
                 width={200}
                 height={200}
                 className="teacherImg"
@@ -37,6 +35,7 @@ const TeacherProfile = () => {
           </div>
         </div>
       </div>
+      
     </>
   );
 };

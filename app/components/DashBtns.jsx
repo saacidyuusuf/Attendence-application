@@ -22,10 +22,12 @@ const DashBtns = () => {
             Dashboard
           </button>
         </Link>
+        <Link href='/classes'>
         <button className="buttonDash classDash">
           <BiCoinStack className="dashIcons" />
           Classes
         </button>
+        </Link>
         <button className="buttonDash">
           <BiBookOpen className="dashIcons" />
           Student Attendence

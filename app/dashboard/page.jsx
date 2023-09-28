@@ -1,21 +1,35 @@
 "use client";
-import { auth } from "@/utills/firebase";
 import ListStudent from "../components/ListStudent";
-import { useAuthState } from "react-firebase-hooks/auth";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect } from "react";
 import Nav from "../components/Nav";
 import Classes from "../components/Classes";
+import {
+  createClientComponentClient,
+  useSession,
+} from "@supabase/auth-helpers-nextjs";
 /* BsFillDatabaseFill kan class wye,  BsFillGridFill kan wa timatable,
 BsBarChart kan rate wye*/
 const Dashboard = () => {
-  const [user, loading] = useAuthState(auth);
-  const [mobile, setmobile] = useState(false);
-  const route = useRouter();
-  if (loading) return <h1 className="center"><span class="loader"></span></h1>;
-  if (!user) route.push("/Auths");
+  const router = useRouter();
+  const supabase = createClientComponentClient();
+  const user = supabase.auth.getUser();
+/*   const sessions = user?.auth?.getSession();
+console.log(user);
+*/  
+  // Check if the user is logged in
+  useEffect(() => {
+    if (!user) {
+      // The user is not logged in, redirect them to the login page
+      router.push("/Auth");
+     // console.log(user);
+    }
+  }, [router, user]);
 
-  if (user)
+  /* if (sessions) {
+    router.push('/dashboard')
+  } */
+
     return (
       <>
         <Nav />

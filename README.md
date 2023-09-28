@@ -39,3 +39,9 @@ i'm using nextjs13 and the router is the name of your folder and i have a link t
  {students ?
          <ListStudent  students={students} /> : 
         <p>Loading....</p>}
+
+
+// brnach u laabo like git checkout main
+// then pull from remote origin master branch
+supabasechanges
+
