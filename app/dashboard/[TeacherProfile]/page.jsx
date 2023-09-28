@@ -35,7 +35,6 @@ const TeacherProfile = () => {
           </div>
         </div>
       </div>
-      
     </>
   );
 };
