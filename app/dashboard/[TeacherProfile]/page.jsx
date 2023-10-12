@@ -6,9 +6,10 @@ import { useUser } from "@supabase/auth-helpers-react";
 
 const TeacherProfile = () => {
   const user = useUser();
+  console.log(user)
   return (
     <>
-      <Nav />
+      <Nav/>
       <div className="Teacher">
         <div className="TeacherRoleContact">
           <div className="Teacherinfo1">

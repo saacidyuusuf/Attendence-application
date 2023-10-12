@@ -107,6 +107,10 @@ button {
   margin-top: 1.3rem;
 }
 
+.menuDownText{
+  margin-bottom: 1rem;
+}
+
 .dashIcon {
   margin-top: 0.32rem;
 }
@@ -126,13 +130,11 @@ button {
   width: 10%;
   background-color: black;
   border-radius: 6px;
-  /* justify-content: flex-end;
-  flex-direction: column;
-  align-items:flex-end; */
-  /* display: flex;
-  justify-content: flex-end;
-  flex-direction: column;
-  justify-self:end; */
+  text-align: left;
+}
+
+.signoutDisplay button{
+  margin-bottom: 1rem;
 }
 
 .signoutDisplay button {
@@ -370,31 +372,33 @@ button {
 .tableNames {
   width: 95%;
   margin: auto;
-  display: flex;
-  justify-content: start;
-  gap: 5rem;
+  gap: 2rem;
 }
+
+.radiotablenameHaye{
+  display: flex;
+  justify-content: space-between;
+}
+
+.radiotablenameHaye p{
+  display: inline;
+}
+
+.studentNames{
+  margin-left: 4rem;
+}
+
 
 .tableNames {
   font-size: 1.4rem;
 }
 
-.check {
-  margin-left: 30rem;
-  font-size: 1.4rem;
+.radio{
+  padding: 4rem;
+  border-radius: 12px;
+  font-size: 10rem;
 }
 
-/* .check:checked{
-  visibility: hidden;
-  margin-left: 30rem;
-} */
-
-@media (max-width: 900px) {
-  .check {
-    margin-left: 10rem;
-    font-size: 1.4rem;
-  }
-}
 
 /* Teacher profile */
 
@@ -704,4 +708,11 @@ input {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   place-self: initial;
   justify-self: start;
+}
+
+
+.submitStudents{
+  width: 20%;
+  background-color: var(--main-color);
+  color: white;
 }
