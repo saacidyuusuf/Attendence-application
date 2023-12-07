@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { useEffect, useState } from "react";
 import ClassNames from "./ClassNames";
 import { useUser } from "@supabase/auth-helpers-react";
@@ -10,19 +10,15 @@ const Classes = () => {
   const [loading, setLoading] = useState(true);
   const supabase = createClientComponentClient();
   const user = useUser();
-  console.log(user)
+  console.log(user);
 
   useEffect(() => {
     async function fetchClasses() {
       try {
-/*         const isAdmin = user?.role === "admin";
- */        let query = supabase.from("classes").select("*");
-/* 
-        if (!isAdmin) {
-          query = query.in("id", [2, 3]); // Restrict to rows with IDs 2 and 3
-        }
- */
+        let query = supabase.from("classes").select("*");
         const { data, error } = await query;
+        console.log("Data:", data);
+        console.log("Error:", error);
         if (error) {
           console.error("Error fetching classes:", error.message);
           setDataClass(null);
@@ -37,19 +33,31 @@ const Classes = () => {
     fetchClasses();
   }, [user]);
   return (
-    <div className="centerLoading">
+    <>
+      <h1 className="dashText">Dashboard</h1>
+      <div className="centerLoading">
       {loading ? (
-        <span className="loader"></span>
-      ) : dataClass && dataClass.length > 0 ? (
-        <>
-        <ClassNames classesData={dataClass} />
-{/*        <ListStudent  classesData={dataClass}/>
- */}        </>
-      ) : (
-        <p>No data available</p>
-      )}
-    </div>
+          <span className="loader"></span>
+        ) : dataClass !== null && dataClass.length > 0 ? (
+          <ClassNames classesData={dataClass} />
+        ) : (
+          <p>No classes available</p>
+        )}
+      </div>
+    </>
   );
 };
 
 export default Classes;
+
+/* 
+  {loading ? (
+          <span className="loader"></span>
+        ) : dataClass && dataClass.length > 0 ? (
+          <ClassNames classesData={dataClass} />
+        ) : (
+          <p>No data available</p>
+        )}
+
+
+*/

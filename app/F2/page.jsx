@@ -9,7 +9,7 @@ const Students = () => {
   const [students, setStudents] = useState(null);
   const [error, setError] = useState();
   const supabase = createClientComponentClient();
- 
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -17,13 +17,11 @@ const Students = () => {
         if (error) {
           setError(error);
           setStudents(null);
-          console.log(error)
-
+          console.log(error);
         } else {
           setStudents(data);
           setError(null);
           console.log(data);
-
         }
       } catch (error) {
         console.error(error);
@@ -33,19 +31,21 @@ const Students = () => {
     }
     fetchData();
   }, []);
+  const currentDate = new Date().toISOString().slice(0, 10);
 
   return (
     <>
       <Nav />
       <div className="studentHaye">
         <h1 className="text-center">Student List</h1>
-        {students ?
-         <ListStudent  students={students} /> : 
-         <span class="loader"></span>}
+        {students ? (
+          <ListStudent students={students} currentDate={currentDate} />
+        ) : (
+          <span class="loader"></span>
+        )}
       </div>
     </>
   );
 };
 
 export default Students;
-

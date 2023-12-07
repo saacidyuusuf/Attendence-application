@@ -1,9 +1,16 @@
 import React from "react";
 import { useState } from "react";
+import Link from "next/link";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
-const ListStudent = ({ students, classesData }) => {
+const ListStudent = ({ students, classesData, currentDate }) => {
+  console.log(currentDate);
   const [isChecked, setIsChecked] = useState(false);
   const [allChecked, setAllChecked] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSent, setIsSent] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const supabase = createClientComponentClient();
 
   const handleAllCheckboxChange = (event) => {
     const checked = event.target.checked;
@@ -26,12 +33,50 @@ const ListStudent = ({ students, classesData }) => {
       );
     }
   };
+
+  //send attendence to supabase
+  const handleSubmit = async () => {
+    setIsLoading(true);
+    try {
+      const attendanceData = students.map((student) => ({
+        studentname: student.name,
+        date: currentDate,
+        ispresent: allChecked.includes(student.name),
+      }));
+
+      const { data, error } = await supabase
+        .from("attendance")
+        .upsert(attendanceData, { onConflict: ["studentname", "date"] });
+
+      if (error) {
+        console.error(error);
+      } else {
+        console.log(data);
+        setIsSent(true);
+        setAllChecked([]); 
+      setTimeout(() => {
+        setIsModalVisible(true); 
+      }, 0);
+      }
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+  setTimeout(() => {
+    setIsSent(false);
+  }, 3000);
+
   return (
-    <div className="listStudents">
-      <h1 className="one">Student Attendence</h1>
-      <div className="infoClass">
-{/*         {classesData.map((classyada) => {
- */}          <>
+    <>
+      <Link className="backdash" href="/dashboard">
+        Back to Dashboard
+      </Link>
+      <div className="listStudents">
+        <h1 className="one">Student Attendence</h1>
+        <div className="infoClass">
+          <>
             <h1>
               Class: <span>{classesData}</span>
             </h1>
@@ -41,54 +86,74 @@ const ListStudent = ({ students, classesData }) => {
             <h1>
               Date:
               <span>
-                <input type="date" />
+                <input type="date" value={currentDate} disabled />
               </span>
             </h1>
-          </>;
-{/*         })}
- */}      </div>
-
-      <h2 className="total">
-        Total Students: <span>{students.length}</span>
-      </h2>
-      <div className="tableHaye">
-        <div className="tableTop">
-          <h1>Id</h1>
-          <h1>Name</h1>
-          <h2>Check Them all</h2>
-          <input
-            checked={isChecked}
-            onChange={handleAllCheckboxChange}
-            type="checkbox"
-            className="radio"
-          />
+          </>
         </div>
-        <div className="tableNames">
-          {students.map((student) => (
-            <>
-              <div className="radiotablenameHaye">
-                <div className="tablename">
-                  <p>{student.id}:</p>
-                  <p className="studentNames">{student.name}</p>
+
+        <h2 className="total">
+          Total Students: <span>{students.length}</span>
+        </h2>
+        <div className="tableHaye">
+          <div className="tableTop">
+            <h1>Id</h1>
+            <h1>Name</h1>
+            <h2>Check all</h2>
+            <input
+              checked={isChecked}
+              onChange={handleAllCheckboxChange}
+              type="checkbox"
+              className="radio"
+            />
+          </div>
+          <div className="tableNames">
+            {students.map((student) => (
+              <>
+                <div className="radiotablenameHaye">
+                  <div className="tablename">
+                    <p>{student.id}:</p>
+                    <p className="studentNames">{student.name}</p>
+                  </div>
+                  <div className="divRadio">
+                    <input
+                      type="checkbox"
+                      checked={allChecked.includes(student.name)}
+                      onChange={handleCheckboxChange}
+                      name={student.name}
+                      className="radio"
+                    />
+                  </div>
                 </div>
-                <div className="divRadio">
-                  <input
-                    type="checkbox"
-                    checked={allChecked.includes(student.name)}
-                    onChange={handleCheckboxChange}
-                    name={student.name}
-                    className="radio"
-                  />
-                </div>
+              </>
+            ))}
+            <button
+              type="submit"
+              onClick={handleSubmit}
+              className="submitStudents"
+            >
+              {isLoading ? "Loading.." : "Submit"}
+            </button>
+            {/* MODal */}
+            <div
+              className="modal"
+              style={{ display: isModalVisible ? "block" : "none" }}
+            >
+              <div className="modalContent">
+                <span
+                  className="close"
+                  onClick={() => setIsModalVisible(false)}
+                >
+                  &times;
+                </span>
+                <p>Attendance sent successfully</p>
               </div>
-            </>
-          ))}
-          <button type="submit" className="submitStudents">
-            Submit
-          </button>
+            </div>
+            {/* modal end */}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

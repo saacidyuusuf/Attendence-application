@@ -3,19 +3,26 @@
 @tailwind utilities;
 
 :root {
-  --main-color: navy;
-  --second-color: darkcyan;
-  --border-color: gainsboro;
+  --main-color: #c69c6c;
+  --second-color: white;
+  --black-color: #08243a;
+}
+
+.backdash{
+  text-align: left;
 }
 
 .header {
-  background-color: navy;
+  background-color: var(--black-color);
   font-size: 1.2rem;
+  font-family: sans-serif, cursive;
 }
 
 nav {
   width: 95%;
   margin: auto;
+  margin-top: 0;
+  padding-top: 0;
   display: flex;
   justify-content: space-between;
 }
@@ -31,14 +38,14 @@ nav ul li {
 
 .logo {
   margin: 2rem 0.5rem;
-  color: white;
+  color: var(--second-color);
   font-size: 1.8rem;
 }
 
-.home {
+/* .home {
   display: flex;
   justify-content: center;
-}
+} */
 
 .auth {
   background-color: black;
@@ -48,7 +55,7 @@ nav ul li {
 }
 
 .login {
-  background-color: navy;
+  background-color: var(--main-color);
   width: 40%;
   margin: auto;
   margin-top: 5rem;
@@ -58,7 +65,7 @@ nav ul li {
 }
 .login h1 {
   font-size: 3rem;
-  color: cyan;
+  color: var(--black-color);
   font-weight: 700;
 }
 
@@ -105,6 +112,13 @@ button {
   text-align: center;
   align-items: center;
   margin-top: 1.3rem;
+}
+
+.dashText{
+  width: 70%;
+  margin: auto;
+  font-size: 2.5rem;
+  font-weight: 700;
 }
 
 .menuDownText{
@@ -194,9 +208,9 @@ button {
 /* classes */
 
 .Classes {
-  width: 60%;
+  width: 40%;
   display: grid;
-  margin-top: 3rem;
+  margin-top: 1rem;
   /*   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   */
   gap: 2rem;
@@ -207,16 +221,18 @@ button {
   margin: auto;
   border: 1px solid var(--border-color);
   padding: 1rem;
+  background-color: #08243a;
   border-radius: 10px;
   text-align: center;
-  box-shadow: rgba(0, 0, 0, 0.2);
+  box-shadow: rgba(0, 0, 0, 0.6);
 }
 .class h1,p{
   margin-bottom: 0.40rem;
+  color: #c69c6c;
 }
 
 .class h2 {
-  color: var(--second-color);
+  color: white;
   font-size: 1.4rem;
   display: flex;
   align-items: center;
@@ -235,15 +251,19 @@ button {
 }
 
 .studentHaye {
-  width: 70%;
+  width: 80%;
   margin: auto;
   margin-top: 1.5rem;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  border: 2px solid gray;
   border-radius: 10px;
+}
+
+.text-center{
+  text-align: left;
+  font-size: 1.8rem;
 }
 
 .studentRow {
@@ -278,6 +298,10 @@ button {
   }
 }
 
+.dash{
+  margin-top: 0.35rem;
+}
+
 .btnsDash {
   width: 70%;
   margin: auto;
@@ -293,7 +317,7 @@ button {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  color: white;
+  color: var(--second-color);
   margin: 0;
   padding: 0;
 }
@@ -303,8 +327,8 @@ button {
 }
 
 .dashIcons {
-  font-size: 3rem;
-  color: white;
+  font-size: 2.5rem;
+  color: var(--main-color);
 }
 
 @media (max-width: 900px) {
@@ -314,11 +338,15 @@ button {
 }
 
 .listStudents {
+  position: relative;
   width: 90%;
   text-align: center;
-  background-color: rgb(236, 231, 231);
+  background-color: rgb(57, 94, 63);
+  background-color: rgba(61, 116, 69, 0.767);
   margin: auto;
-  margin-bottom: 2rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 12px;
 }
 
 .one {
@@ -369,6 +397,7 @@ button {
   margin-bottom: 1rem;
 }
 
+
 .tableNames {
   width: 95%;
   margin: auto;
@@ -382,6 +411,19 @@ button {
 
 .radiotablenameHaye p{
   display: inline;
+}
+
+.tablename p{
+  color: white;
+}
+
+.divRadio{
+  padding: 0;
+  margin: 0;
+}
+
+.tableHaye h2{
+  margin-right: 0;
 }
 
 .studentNames{
@@ -715,4 +757,35 @@ input {
   width: 20%;
   background-color: var(--main-color);
   color: white;
+}
+
+/* modal */
+
+.modal{
+  position: absolute;
+  top: 50%;
+  left: 33%;
+  background-color: var(--black-color);
+  color: white;
+  padding: 0.1rem;
+  width: 20rem;
+  box-shadow: 0 0 8px 8px rgba(0,0,0,0.2);
+  border-radius: 12px;
+}
+
+.modalContent span{
+ background-color: black;
+ color: white;
+ border-radius: 12px;
+ padding: 2px;
+ font-size: 1.8rem;
+ cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .modal{
+    position: absolute;
+    top: 50%;
+    left: 20%;
+  }
 }

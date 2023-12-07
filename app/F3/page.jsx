@@ -32,13 +32,16 @@ const Students = () => {
     fetchData();
   }, []);
 
+  const currentDate = new Date().toISOString().slice(0, 10);
+
+
   return (
     <>
       <Nav />
       <div className="studentHaye">
         <h1 className="text-center">Student List</h1>
         {students ?
-         <ListStudent  students={students} /> : 
+         <ListStudent  students={students} currentDate={currentDate} /> : 
          <span class="loader"></span>}
       </div>
     </>
