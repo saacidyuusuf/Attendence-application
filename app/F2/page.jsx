@@ -9,7 +9,7 @@ const Students = () => {
   const [students, setStudents] = useState(null);
   const [error, setError] = useState();
   const supabase = createClientComponentClient();
-
+  const ClassIdentifier = 'f2students'
   useEffect(() => {
     async function fetchData() {
       try {
@@ -39,7 +39,7 @@ const Students = () => {
       <div className="studentHaye">
         <h1 className="text-center">Student List</h1>
         {students ? (
-          <ListStudent students={students} currentDate={currentDate} />
+          <ListStudent students={students} classIdentifier={ClassIdentifier} currentDate={currentDate} />
         ) : (
           <span class="loader"></span>
         )}

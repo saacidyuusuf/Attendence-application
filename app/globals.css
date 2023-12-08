@@ -341,8 +341,8 @@ button {
   position: relative;
   width: 90%;
   text-align: center;
-  background-color: rgb(57, 94, 63);
   background-color: rgba(61, 116, 69, 0.767);
+  background-color: rgba(61, 116, 69, 0.952);
   margin: auto;
   padding: 1rem;
   margin-bottom: 1rem;
@@ -764,28 +764,29 @@ input {
 .modal{
   position: absolute;
   top: 50%;
-  left: 33%;
+  left: 22%;
   background-color: var(--black-color);
   color: white;
   padding: 0.1rem;
-  width: 20rem;
+  width: 35rem;
   box-shadow: 0 0 8px 8px rgba(0,0,0,0.2);
   border-radius: 12px;
 }
 
-.modalContent span{
+/* .modalContent span{
  background-color: black;
  color: white;
  border-radius: 12px;
  padding: 2px;
  font-size: 1.8rem;
  cursor: pointer;
-}
+} */
 
 @media (max-width: 900px) {
   .modal{
     position: absolute;
+    width: 31rem;
     top: 50%;
-    left: 20%;
+    left: 0%;
   }
 }

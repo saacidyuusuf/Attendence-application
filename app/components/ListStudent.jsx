@@ -3,7 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
-const ListStudent = ({ students, classesData, currentDate }) => {
+const ListStudent = ({ students, classesData, currentDate,classIdentifier }) => {
   console.log(currentDate);
   const [isChecked, setIsChecked] = useState(false);
   const [allChecked, setAllChecked] = useState([]);
@@ -33,30 +33,32 @@ const ListStudent = ({ students, classesData, currentDate }) => {
       );
     }
   };
-
   //send attendence to supabase
   const handleSubmit = async () => {
     setIsLoading(true);
     try {
       const attendanceData = students.map((student) => ({
+        studentid: student.id,
         studentname: student.name,
         date: currentDate,
         ispresent: allChecked.includes(student.name),
+        class: classIdentifier
       }));
 
       const { data, error } = await supabase
         .from("attendance")
-        .upsert(attendanceData, { onConflict: ["studentname", "date"] });
+        .upsert(attendanceData, { onConflict: ["studentid", "date",'class'] });
 
       if (error) {
         console.error(error);
       } else {
         console.log(data);
         setIsSent(true);
-        setAllChecked([]); 
-      setTimeout(() => {
-        setIsModalVisible(true); 
-      }, 0);
+        setAllChecked([]);
+        setIsModalVisible(true)
+        setTimeout(() => {
+          setIsModalVisible(false);
+        }, 2000);
       }
     } catch (error) {
       console.error(error);
@@ -64,9 +66,6 @@ const ListStudent = ({ students, classesData, currentDate }) => {
       setIsLoading(false);
     }
   };
-  setTimeout(() => {
-    setIsSent(false);
-  }, 3000);
 
   return (
     <>
@@ -144,7 +143,6 @@ const ListStudent = ({ students, classesData, currentDate }) => {
                   className="close"
                   onClick={() => setIsModalVisible(false)}
                 >
-                  &times;
                 </span>
                 <p>Attendance sent successfully</p>
               </div>
