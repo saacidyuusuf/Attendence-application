@@ -32,10 +32,9 @@ const Classes = () => {
     }
     fetchClasses();
   }, [user]);
+  
   return (
     <>
-      <h1 className="dashText">Dashboard</h1>
-      <div className="centerLoading">
       {loading ? (
           <span className="loader"></span>
         ) : dataClass !== null && dataClass.length > 0 ? (
@@ -43,7 +42,6 @@ const Classes = () => {
         ) : (
           <p>No classes available</p>
         )}
-      </div>
     </>
   );
 };

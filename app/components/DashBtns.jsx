@@ -50,12 +50,6 @@ const DashBtns = () => {
           Attendence Rate
         </button>
         </Link>
-        <Link href='/dashboard/TeacherProfile'>
-        <button className="buttonDash">
-          <BsFillPersonFill className="dashIcons" />
-          Teacher Profile
-        </button>
-        </Link>
       </div>
     </div>
   );

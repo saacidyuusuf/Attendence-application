@@ -8,7 +8,7 @@
   --black-color: #08243a;
 }
 
-.backdash{
+.backdash {
   text-align: left;
 }
 
@@ -114,14 +114,14 @@ button {
   margin-top: 1.3rem;
 }
 
-.dashText{
-  width: 70%;
+.dashText {
+  width: 90%;
   margin: auto;
   font-size: 2.5rem;
   font-weight: 700;
 }
 
-.menuDownText{
+.menuDownText {
   margin-bottom: 1rem;
 }
 
@@ -147,7 +147,7 @@ button {
   text-align: left;
 }
 
-.signoutDisplay button{
+.signoutDisplay button {
   margin-bottom: 1rem;
 }
 
@@ -208,16 +208,15 @@ button {
 /* classes */
 
 .Classes {
-  width: 40%;
+  width: 100%;
   display: grid;
   margin-top: 1rem;
-  /*   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  */
-  gap: 2rem;
+ grid-template-columns: repeat(3,1fr);
+  gap: 1rem;
 }
 
 .class {
-  width: 80%;
+  width: 90%;
   margin: auto;
   border: 1px solid var(--border-color);
   padding: 1rem;
@@ -225,9 +224,11 @@ button {
   border-radius: 10px;
   text-align: center;
   box-shadow: rgba(0, 0, 0, 0.6);
+  margin-bottom: 1rem;
 }
-.class h1,p{
-  margin-bottom: 0.40rem;
+.class h1,
+p {
+  margin-bottom: 0.4rem;
   color: #c69c6c;
 }
 
@@ -261,7 +262,7 @@ button {
   border-radius: 10px;
 }
 
-.text-center{
+.text-center {
   text-align: left;
   font-size: 1.8rem;
 }
@@ -296,19 +297,23 @@ button {
   .studentHaye {
     width: 90%;
   }
+  .classes{
+    width: 100%;
+  }
 }
 
-.dash{
+.dash {
   margin-top: 0.35rem;
 }
 
 .btnsDash {
-  width: 70%;
+  width: 80%;
+  margin-left: 3rem;
   margin: auto;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   border-radius: 12px;
-  gap: 1.4rem;
+  gap: 1.8rem;
 }
 
 .buttonDash {
@@ -397,110 +402,51 @@ button {
   margin-bottom: 1rem;
 }
 
-
 .tableNames {
   width: 95%;
   margin: auto;
   gap: 2rem;
 }
 
-.radiotablenameHaye{
+.radiotablenameHaye {
   display: flex;
   justify-content: space-between;
 }
 
-.radiotablenameHaye p{
+.radiotablenameHaye p {
   display: inline;
 }
 
-.tablename p{
+.tablename p {
   color: white;
 }
 
-.divRadio{
+.divRadio {
   padding: 0;
   margin: 0;
 }
 
-.tableHaye h2{
+.tableHaye h2 {
   margin-right: 0;
 }
 
-.studentNames{
+.studentNames {
   margin-left: 4rem;
 }
-
 
 .tableNames {
   font-size: 1.4rem;
 }
 
-.radio{
+.radio {
   padding: 4rem;
   border-radius: 12px;
   font-size: 10rem;
 }
 
 
-/* Teacher profile */
-
-.Teacher {
-  width: 50%;
-  margin: auto;
-  align-content: center;
-  margin-top: 2rem;
-  place-items: center;
-}
-
-.TeacherRoleContact {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: 2rem;
-  row-gap: 0.4rem;
-}
-
-.Teacherinfo1 h1 {
-  font-size: 1.8rem;
-  font-weight: bold;
-}
-
-.Teacherinfo1 span {
-  font-weight: 500;
-  font-size: 1.4rem;
-}
-
-.teacherinfo2 h1 {
-  font-weight: bolder;
-}
-
-.teacherinfo2 span {
-  font-weight: 500;
-}
-
-.TeacherRoleContact {
-  border: 1px solid var(--border-color);
-  padding: 1rem;
-  border-radius: 1rem;
-  justify-content: start;
-}
-
-.teacherImg {
-  border-radius: 0.4rem;
-}
-
-@media (max-width: 900px) {
-  .Teacher {
-    width: 80%;
-  }
-}
 
 /* Loader */
-.centerLoading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
 
 .center {
   display: flex;
@@ -752,8 +698,7 @@ input {
   justify-self: start;
 }
 
-
-.submitStudents{
+.submitStudents {
   width: 20%;
   background-color: var(--main-color);
   color: white;
@@ -761,7 +706,7 @@ input {
 
 /* modal */
 
-.modal{
+.modal {
   position: absolute;
   top: 50%;
   left: 22%;
@@ -769,7 +714,7 @@ input {
   color: white;
   padding: 0.1rem;
   width: 35rem;
-  box-shadow: 0 0 8px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 0 8px 8px rgba(0, 0, 0, 0.2);
   border-radius: 12px;
 }
 
@@ -783,10 +728,68 @@ input {
 } */
 
 @media (max-width: 900px) {
-  .modal{
+  .modal {
     position: absolute;
     width: 31rem;
     top: 50%;
     left: 0%;
+  }
+}
+
+.dashDIsplay {
+  width: 90%;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  place-items: center;
+  margin-top: 1.4rem;
+}
+
+.dashClass{
+  width: 90%;
+}
+
+.userDisplay {
+  display: grid;
+  place-items: left;
+  background-color:rgb(216, 250, 216);
+  color: black;
+  width: 30%;
+  padding: 1.5rem 0.9rem;
+  border-radius: 8px;
+}
+
+.userImage{
+  width: 30%;
+  display: block;
+  margin-right: 0.40rem;
+}
+
+.userDisplay h1{
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.userDisplay h2{
+
+}
+
+.signoutUser button{
+  background-color: black;
+  color: white;
+  width: 40%;
+}
+
+
+@media (max-width: 900px) {
+  .dashDIsplay{
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .userDisplay{
+    width: 70%;
+  }
+  .dashClass{
+    width: 100%;
   }
 }

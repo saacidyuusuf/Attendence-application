@@ -8,6 +8,7 @@ import {
   createClientComponentClient,
   useSession,
 } from "@supabase/auth-helpers-nextjs";
+import User from "../components/User";
 /* BsFillDatabaseFill kan class wye,  BsFillGridFill kan wa timatable,
 BsBarChart kan rate wye*/
 const Dashboard = () => {
@@ -33,7 +34,10 @@ console.log(user);
     return (
       <>
         <Nav />
+        <div className="dashDIsplay">
+        <User classes={Classes}/>
         <Classes />
+        </div>
       </>
     );
 };

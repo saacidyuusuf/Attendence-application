@@ -7,10 +7,13 @@ const ClassNames = ({ classesData }) => {
   if (!classesData) {
     return <p>No data available</p>;
   }
+  
   return (
     <>
-        {classesData.map((classesyada) => (
-          <div className="Classes">
+      <div className="dashClass">
+      <h1 className="dashText">Dashboard</h1>
+        <div className="Classes">
+          {classesData.map((classesyada) => (
             <Link href={classesyada.class}>
               <div className="class">
                 <h1>{classesyada.day}</h1>
@@ -22,8 +25,9 @@ const ClassNames = ({ classesData }) => {
                 <br />
               </div>
             </Link>
-          </div>
-        ))}
+          ))}
+        </div>
+      </div>
     </>
   );
 };
