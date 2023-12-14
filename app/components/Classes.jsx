@@ -1,9 +1,7 @@
-"use client";
 import React, { useEffect, useState } from "react";
 import ClassNames from "./ClassNames";
 import { useUser } from "@supabase/auth-helpers-react";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import ListStudent from "./ListStudent";
 
 const Classes = () => {
   const [dataClass, setDataClass] = useState(null);
@@ -16,6 +14,7 @@ const Classes = () => {
     async function fetchClasses() {
       try {
         let query = supabase.from("classes").select("*");
+
         const { data, error } = await query;
         console.log("Data:", data);
         console.log("Error:", error);
@@ -32,16 +31,19 @@ const Classes = () => {
     }
     fetchClasses();
   }, [user]);
-  
+
+
+  if (loading) {
+    return <span className="loader"></span>;
+  }
+
+  if (dataClass && dataClass.length > 0) {
+    return <ClassNames classesData={dataClass} />;
+  }
+
   return (
     <>
-      {loading ? (
-          <span className="loader"></span>
-        ) : dataClass !== null && dataClass.length > 0 ? (
-          <ClassNames classesData={dataClass} />
-        ) : (
-          <p>No classes available</p>
-        )}
+      <p>No classes available</p>;
     </>
   );
 };
@@ -49,12 +51,12 @@ const Classes = () => {
 export default Classes;
 
 /* 
-  {loading ? (
+      {loading ? (
           <span className="loader"></span>
-        ) : dataClass && dataClass.length > 0 ? (
+        ) : dataClass !== null && dataClass.length > 0 ? (
           <ClassNames classesData={dataClass} />
         ) : (
-          <p>No data available</p>
+          <p>No classes available</p>
         )}
 
 

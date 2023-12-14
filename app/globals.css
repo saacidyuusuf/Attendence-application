@@ -18,6 +18,10 @@
   font-family: sans-serif, cursive;
 }
 
+.header button{
+  border: none;
+}
+
 nav {
   width: 95%;
   margin: auto;
@@ -56,6 +60,7 @@ nav ul li {
 
 .login {
   background-color: var(--main-color);
+  background-color: black;
   width: 40%;
   margin: auto;
   margin-top: 5rem;
@@ -65,7 +70,7 @@ nav ul li {
 }
 .login h1 {
   font-size: 3rem;
-  color: var(--black-color);
+  color: var(--main-color);
   font-weight: 700;
 }
 
@@ -304,6 +309,7 @@ p {
 
 .dash {
   margin-top: 0.35rem;
+  margin-left: 4rem;
 }
 
 .btnsDash {
@@ -451,17 +457,17 @@ p {
 .center {
   display: flex;
   justify-content: center;
-  align-items: center;
   place-content: center;
-  place-items: center;
   margin-top: 10rem;
 }
 
 .loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  display: inline-block;
   border-top: 4px solid var(--main-color);
   border-right: 4px solid transparent;
   box-sizing: border-box;
@@ -741,26 +747,36 @@ input {
   display: flex;
   margin: auto;
   justify-content: center;
-  place-items: center;
-  margin-top: 1.4rem;
 }
 
 .dashClass{
-  width: 90%;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.currentDate{
+  background-color: #08243a;
+  background-color: black;
+  border-radius: 8px;
+  color: white;
 }
 
 .userDisplay {
   display: grid;
-  place-items: left;
-  background-color:rgb(216, 250, 216);
   color: black;
-  width: 30%;
+  width: 40%;
   padding: 1.5rem 0.9rem;
   border-radius: 8px;
+  margin-top: 1rem;
+  margin-right: 4rem;
+}
+
+.date{
+  display: flex;
 }
 
 .userImage{
-  width: 30%;
+  width: 40%;
   display: block;
   margin-right: 0.40rem;
 }

@@ -5,8 +5,7 @@ import { useUser } from "@supabase/auth-helpers-react";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 
-
-const User = ({classes}) => {
+const User = () => {
   const supabase = createClientComponentClient();
   const user = supabase.auth.getUser();
   const router = useRouter();
@@ -15,10 +14,8 @@ const User = ({classes}) => {
     router.refresh();
   };
 
-
   return (
     <>
-    {classes ?  (
       <div className="userDisplay">
         <Image className="userImage" src={Userimage}></Image>
         <h1 className="username">UserName</h1>
@@ -32,13 +29,9 @@ const User = ({classes}) => {
           Gmail: <span>Saacidyuusuf871@gmail.com</span>
         </h2>
         <div className="signoutUser">
-        <button onClick={handleSignOut()}>Sign out</button>
+          <button onClick={handleSignOut()}>Sign out</button>
         </div>
       </div>
-    ):(
-      <></>
-    )}
-
     </>
   );
 };

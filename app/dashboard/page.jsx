@@ -1,7 +1,7 @@
 "use client";
 import ListStudent from "../components/ListStudent";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Nav from "../components/Nav";
 import Classes from "../components/Classes";
 import {
@@ -9,37 +9,70 @@ import {
   useSession,
 } from "@supabase/auth-helpers-nextjs";
 import User from "../components/User";
-/* BsFillDatabaseFill kan class wye,  BsFillGridFill kan wa timatable,
-BsBarChart kan rate wye*/
+import { useUser } from "@supabase/auth-helpers-react";
+
+
 const Dashboard = () => {
   const router = useRouter();
   const supabase = createClientComponentClient();
-  const user = supabase.auth.getUser();
-/*   const sessions = user?.auth?.getSession();
-console.log(user);
-*/  
-  // Check if the user is logged in
-  useEffect(() => {
-    if (!user) {
-      // The user is not logged in, redirect them to the login page
-      router.push("/Auth");
-     // console.log(user);
+  /*   const user = supabase.auth.getUser();
+   */
+  const user = useUser();
+
+  /* useEffect(() => {
+    async function fetchClasses() {
+      try {
+        let query = supabase.from("classes").select("*");
+
+        const { data, error } = await query;
+        console.log("Data:", data);
+        console.log("Error:", error);
+        if (error) {
+          console.error("Error fetching classes:", error.message);
+          setDataClass(null);
+        } else {
+          setDataClass(data);
+          setLoading(false);
+        }
+      } catch (err) {
+        console.log("Error:", err.message);
+      }
     }
-  }, [router, user]);
+    fetchClasses();
+  }, [user]); */
 
-  /* if (sessions) {
-    router.push('/dashboard')
-  } */
+  // Checking if the user is logged in
+/*   useEffect(() => {
+    if (!user) {
+      // The user is not logged in,
+      //redirect them to the login page
+      router.push("/Auth");
+      // console.log(user);
+    }
+  }, [user]); */
 
-    return (
-      <>
-        <Nav />
-        <div className="dashDIsplay">
-        <User classes={Classes}/>
+  return (
+    <>
+      <Nav />
+      <div className="dashDIsplay">
         <Classes />
-        </div>
-      </>
-    );
+      </div>
+    </>
+  );
 };
 
 export default Dashboard;
+
+/* 
+
+
+
+ /*   const sessions = user?.auth?.getSession();
+console.log(user);
+*/
+/* if (sessions) {
+    router.push('/dashboard')
+  }  */
+/*   const handleClassesFetched = () => {
+    setIsClassesFetched(true);
+  }; */

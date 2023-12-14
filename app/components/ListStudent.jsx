@@ -33,6 +33,7 @@ const ListStudent = ({ students, classesData, currentDate,classIdentifier }) => 
       );
     }
   };
+  
   //send attendence to supabase
   const handleSubmit = async () => {
     setIsLoading(true);
@@ -85,7 +86,7 @@ const ListStudent = ({ students, classesData, currentDate,classIdentifier }) => 
             <h1>
               Date:
               <span>
-                <input type="date" value={currentDate} disabled />
+                <input type="date" className="currentDate" value={currentDate} disabled />
               </span>
             </h1>
           </>
@@ -106,6 +107,7 @@ const ListStudent = ({ students, classesData, currentDate,classIdentifier }) => 
               className="radio"
             />
           </div>
+          
           <div className="tableNames">
             {students.map((student) => (
               <>
