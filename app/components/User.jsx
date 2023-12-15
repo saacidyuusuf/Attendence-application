@@ -29,7 +29,7 @@ const User = () => {
           Gmail: <span>Saacidyuusuf871@gmail.com</span>
         </h2>
         <div className="signoutUser">
-          <button onClick={handleSignOut()}>Sign out</button>
+          <button onClick={handleSignOut}>Sign out</button>
         </div>
       </div>
     </>

@@ -760,6 +760,9 @@ input {
   border-radius: 8px;
   color: white;
 }
+.header{
+  background-color: #08243a;
+}
 
 .userDisplay {
   display: grid;

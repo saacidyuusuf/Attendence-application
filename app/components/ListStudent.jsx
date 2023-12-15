@@ -33,7 +33,6 @@ const ListStudent = ({ students, classesData, currentDate,classIdentifier }) => 
       );
     }
   };
-  
   //send attendence to supabase
   const handleSubmit = async () => {
     setIsLoading(true);
@@ -45,7 +44,6 @@ const ListStudent = ({ students, classesData, currentDate,classIdentifier }) => 
         ispresent: allChecked.includes(student.name),
         class: classIdentifier
       }));
-
       const { data, error } = await supabase
         .from("attendance")
         .upsert(attendanceData, { onConflict: ["studentid", "date",'class'] });

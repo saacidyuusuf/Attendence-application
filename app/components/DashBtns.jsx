@@ -28,10 +28,12 @@ const DashBtns = () => {
           Classes
         </button>
         </Link>
+        <Link href='/dashboard/StudentAttendence/studentAttendence'>
         <button className="buttonDash">
           <BiBookOpen className="dashIcons" />
           Student Attendence
         </button>
+        </Link>
         <Link href='/dashboard/timetable/TimeTable'>
         <button className="buttonDash">
           <BiSolidDashboard className="dashIcons" />

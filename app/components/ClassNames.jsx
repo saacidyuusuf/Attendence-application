@@ -22,10 +22,9 @@ const ClassNames = ({ classesData }) => {
         </div>
         </div>
         <div className="Classes">
-          {classesData && 
-          classesData.map((classesyada) => (
+          {classesData.map((classesyada) => (
             <Link href={classesyada.class}>
-              <div className="class">
+              <div className="class" key={classesyada.class}>
                 <h1>{classesyada.day}</h1>
                 <p>{classesyada.subject}</p>
                 <h2>
