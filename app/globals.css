@@ -44,6 +44,7 @@ nav ul li {
   margin: 2rem 0.5rem;
   color: var(--second-color);
   font-size: 1.8rem;
+  text-decoration: none;
 }
 
 /* .home {
@@ -111,6 +112,10 @@ button {
 .profileVisible {
   border-radius: 15px;
   margin-top: 0.3rem;
+}
+
+.link{
+  text-decoration: none;
 }
 
 .dash {
@@ -760,6 +765,7 @@ input {
   border-radius: 8px;
   color: white;
 }
+
 .header{
   background-color: #08243a;
 }
@@ -768,9 +774,8 @@ input {
   display: grid;
   color: black;
   width: 40%;
-  padding: 1.5rem 0.9rem;
+  padding: 0.40rem 0.9rem;
   border-radius: 8px;
-  margin-top: 1rem;
   margin-right: 4rem;
 }
 
@@ -780,6 +785,7 @@ input {
 
 .userImage{
   width: 40%;
+  height: 25vh;
   display: block;
   margin-right: 0.40rem;
 }
@@ -789,14 +795,15 @@ input {
   font-size: 1.8rem;
   font-weight: 600;
 }
-.userDisplay h2{
-
+.userDisplay h2 ,span{
+  margin-top: 0;
 }
 
 .signoutUser button{
   background-color: black;
   color: white;
   width: 40%;
+  margin-top: 0;
 }
 
 

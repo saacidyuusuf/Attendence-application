@@ -26,7 +26,7 @@ const User = () => {
           Number: <span>615422035</span>
         </h2>
         <h2>
-          Gmail: <span>Saacidyuusuf871@gmail.com</span>
+          Gmail:<span>Saacidyuusuf871@gmail.com</span>
         </h2>
         <div className="signoutUser">
           <button onClick={handleSignOut}>Sign out</button>

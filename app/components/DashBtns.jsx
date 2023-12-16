@@ -16,37 +16,37 @@ const DashBtns = () => {
   return (
     <div className="dash">
       <div className="btnsDash">
-        <Link href="/dashboard">
+        <Link className="link" href="/dashboard">
           <button className="buttonDash ">
             <BiHomeAlt className="dashIcons dashIcon" />
             Dashboard
           </button>
         </Link>
-        <Link href='/classes'>
+        <Link className="link" href='/classes'>
         <button className="buttonDash classDash">
           <BiCoinStack className="dashIcons" />
           Classes
         </button>
         </Link>
-        <Link href='/dashboard/StudentAttendence/studentAttendence'>
+        <Link className="link" href='/dashboard/StudentAttendence/studentAttendence'>
         <button className="buttonDash">
           <BiBookOpen className="dashIcons" />
           Student Attendence
         </button>
         </Link>
-        <Link href='/dashboard/timetable/TimeTable'>
+        <Link className="link" href='/dashboard/timetable/TimeTable'>
         <button className="buttonDash">
           <BiSolidDashboard className="dashIcons" />
           TimeTable Period
         </button>
         </Link>
-        <Link href='/dashboard/attendenceweek/AttendenceWeek'>
+        <Link className="link" href='/dashboard/attendenceweek/AttendenceWeek'>
         <button className="buttonDash">
           <BiCalendarWeek className="dashIcons" />
           Attendence Week
         </button>
         </Link>
-        <Link href='/dashboard/attendencerate/AttendenceRate'>
+        <Link className="link" href='/dashboard/attendencerate/AttendenceRate'>
         <button className="buttonDash">
           <BiBarChart className="dashIcons" />
           Attendence Rate
