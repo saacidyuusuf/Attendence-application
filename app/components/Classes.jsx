@@ -1,13 +1,17 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useContext } from "react";
 import ClassNames from "./ClassNames";
 import { useUser } from "@supabase/auth-helpers-react";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import ListStudent from "./ListStudent";
+import { ContextHaye } from "../context/context";
 
 const Classes = () => {
-  const [dataClass, setDataClass] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const {dataClass, setDataClass} = useContext(ContextHaye)
+/*   const [dataClass, setDataClass] = useState(null);
+
+ */  
+const [loading, setLoading] = useState(true);
   const supabase = createClientComponentClient();
   const user = useUser();
   console.log(user);

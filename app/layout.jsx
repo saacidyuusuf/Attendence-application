@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Space_Grotesk } from "next/font/google";
 import Nav from "@/app/components/Nav";
+import GlobalcontextProvider from "./context/context";
 
 const lato = Space_Grotesk({
   weight: ["300", "700"],
@@ -19,7 +20,9 @@ export default function RootLayout({ children }) {
     <>
     <html lang="en">
       <body className={lato.className}>
+        <GlobalcontextProvider>
         <main className="container">{children}</main>
+        </GlobalcontextProvider>
       </body>
     </html>
     </>

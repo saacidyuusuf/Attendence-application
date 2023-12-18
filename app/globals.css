@@ -400,6 +400,21 @@ p {
   margin-top: 10px;
 }
 
+.attendanceContainer{
+  position: relative;
+}
+
+.classesLength{
+  position: absolute;
+  top: 10%;
+  left: 55%;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  padding: 7px;
+  background-color: black;
+  color: white;
+  border-radius: 8px;
+}
 
 /* end spans shows */
 

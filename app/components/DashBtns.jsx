@@ -11,11 +11,13 @@ import {
 import { BsFillPersonFill } from "react-icons/bs";
 import Link from "next/link";
 import { useState } from "react";
+import { useContext } from "react";
+import { ContextHaye } from "../context/context";
 /* XMLHttpRequestEventTarget
  */
 const DashBtns = () => {
   const [clicked, setclicked] = useState(false);
-
+  const {totalclasses,dataClass} = useContext(ContextHaye)
   return (
     <div className="dash">
       <div className="btnsDash">
@@ -26,7 +28,7 @@ const DashBtns = () => {
         <div className="Container" onClick={() => setclicked(!clicked)}>
           <div className="attendanceContainer">
             <BiCoinStack className="d classesicon" />
-            <p>Classes</p>
+            <p>Classes <span className="classesLength">{dataClass.length}</span></p>
           </div>
           {clicked && (
             <div className="showclasses">
