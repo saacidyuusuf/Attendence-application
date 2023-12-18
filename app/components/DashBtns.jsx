@@ -23,9 +23,11 @@ const DashBtns = () => {
           <BiHomeAlt className="d" />
           <p>Dashboard</p>
         </Link>
-        <div className={`classesWrapper ${clicked ? 'clicked' : ''}`} onClick={() => setclicked(!clicked)}>
+        <div className="Container" onClick={() => setclicked(!clicked)}>
+          <div className="attendanceContainer">
             <BiCoinStack className="d classesicon" />
             <p>Classes</p>
+          </div>
           {clicked && (
             <div className="showclasses">
               <Link href="/F4">
@@ -40,8 +42,12 @@ const DashBtns = () => {
           className="link"
           href="/dashboard/StudentAttendence/studentAttendence"
         >
-          <BiBookOpen className="dashIcons att" />
-          <p>Student Attendence</p>
+          <BiBookOpen
+            className={`dashIcons att ${clicked ? "shift-down" : ""}`}
+          />
+          <p className={`attendanceText ${clicked ? "shift-down" : ""}`}>
+            Student Attendence
+          </p>
         </Link>
         <Link className="link" href="/dashboard/timetable/TimeTable">
           <BiSolidDashboard className="dashIcons" />
