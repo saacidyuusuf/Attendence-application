@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { BiCoinStack } from "react-icons/bi";
 import User from "./User";
+import DashBtns from "./DashBtns";
 
 const ClassNames = ({ classesData }) => {
   const currentDate = new Date().toISOString().slice(0, 10);
@@ -11,7 +12,7 @@ const ClassNames = ({ classesData }) => {
 
   return (
     <>
-      <User />
+    <DashBtns/>
       <div className="dashClass">
         <div className="date">
           <h1 className="dashText">Dashboard</h1>

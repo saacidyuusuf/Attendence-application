@@ -16,6 +16,7 @@ import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 import DashBtn from "@/app/components/DashBtns";
 import Link from "next/link";
+import User from "./User";
 
 export default function Nav() {
   const supabase = createClientComponentClient();
@@ -30,49 +31,45 @@ export default function Nav() {
 
   return (
     <header className="header">
-      <nav>
-        <Link href="/" className="logo">
-          Logo
-        </Link>
-        <DashBtns />
-        <ul>
-          {user && (
-            <div>
-              {profile && (
-                <>
-                  <div className="signoutDisplay">
-                    <button onClick={() => {}} className="profilePerson">
-                      Profile
-                    </button>
-                    <Link href="/dashboard">
-                      <button className="buttonDash ">
-                        Dashboard
-                      </button>
-                    </Link>
-                    <Link href="/dashboard/timetable/TimeTable">
-                      <button className="buttonDash">TimeTable</button>
-                    </Link>
-                    <Link href="/dashboard/attendenceweek/AttendenceWeek">
-                      <button className="buttonDash">Attendence Week</button>
-                    </Link>
-                    <button onClick={handleSignOut()}>Sign out</button>
-                  </div>
-                </>
-              )}
-            </div>
-          )}
+      <Link href="/" className="logo">
+        Baxar<span className="coder">Coder</span>
+      </Link>
+      <ul>
+        {user && (
+          <div>
+            {profile && (
+              <>
+                <div className="signoutDisplay">
+                  <button onClick={() => {}} className="profilePerson">
+                    Profile
+                  </button>
+                  <Link href="/dashboard">
+                    <button className="buttonDash ">Dashboard</button>
+                  </Link>
+                  <Link href="/dashboard/timetable/TimeTable">
+                    <button className="buttonDash">TimeTable</button>
+                  </Link>
+                  <Link href="/dashboard/attendenceweek/AttendenceWeek">
+                    <button className="buttonDash">Attendence Week</button>
+                  </Link>
+                  <button onClick={handleSignOut()}>Sign out</button>
+                </div>
+              </>
+            )}
+          </div>
+        )}
 
-          {!user && (
-            <Link href="/dashboard" className="auth">
-              join know
-            </Link>
-          )}
-          <FiMenu
-            onClick={() => setProfile(!profile)}
-            className={profile !== true ? "menu" : "MenuOpen"}
-          />
-        </ul>
-      </nav>
+        {!user && (
+          <Link href="/dashboard" className="auth">
+            join know
+          </Link>
+        )}
+        <FiMenu
+          onClick={() => setProfile(!profile)}
+          className={profile !== true ? "menu" : "MenuOpen"}
+        />
+      </ul>
+      <User/>
     </header>
   );
 }

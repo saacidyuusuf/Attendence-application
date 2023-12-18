@@ -1,3 +1,4 @@
+"use-client";
 import React from "react";
 import {
   BiSolidDashboard,
@@ -9,48 +10,50 @@ import {
 } from "react-icons/bi";
 import { BsFillPersonFill } from "react-icons/bs";
 import Link from "next/link";
+import { useState } from "react";
 /* XMLHttpRequestEventTarget
  */
 const DashBtns = () => {
- 
+  const [clicked, setclicked] = useState(false);
+
   return (
     <div className="dash">
       <div className="btnsDash">
         <Link className="link" href="/dashboard">
-          <button className="buttonDash ">
-            <BiHomeAlt className="dashIcons dashIcon" />
-            Dashboard
-          </button>
+          <BiHomeAlt className="d" />
+          <p>Dashboard</p>
         </Link>
-        <Link className="link" href='/classes'>
-        <button className="buttonDash classDash">
-          <BiCoinStack className="dashIcons" />
-          Classes
-        </button>
+        <div className={`classesWrapper ${clicked ? 'clicked' : ''}`} onClick={() => setclicked(!clicked)}>
+            <BiCoinStack className="d classesicon" />
+            <p>Classes</p>
+          {clicked && (
+            <div className="showclasses">
+              <Link href="/F4">
+                <span>Class F4</span>
+              </Link>
+              <span>Class F3</span>
+              <span>Class F2</span>
+            </div>
+          )}
+        </div>
+        <Link
+          className="link"
+          href="/dashboard/StudentAttendence/studentAttendence"
+        >
+          <BiBookOpen className="dashIcons att" />
+          <p>Student Attendence</p>
         </Link>
-        <Link className="link" href='/dashboard/StudentAttendence/studentAttendence'>
-        <button className="buttonDash">
-          <BiBookOpen className="dashIcons" />
-          Student Attendence
-        </button>
-        </Link>
-        <Link className="link" href='/dashboard/timetable/TimeTable'>
-        <button className="buttonDash">
+        <Link className="link" href="/dashboard/timetable/TimeTable">
           <BiSolidDashboard className="dashIcons" />
-          TimeTable Period
-        </button>
+          <p>TimeTable Period</p>
         </Link>
-        <Link className="link" href='/dashboard/attendenceweek/AttendenceWeek'>
-        <button className="buttonDash">
+        <Link className="link" href="/dashboard/attendenceweek/AttendenceWeek">
           <BiCalendarWeek className="dashIcons" />
-          Attendence Week
-        </button>
+          <p>Attendence Week</p>
         </Link>
-        <Link className="link" href='/dashboard/attendencerate/AttendenceRate'>
-        <button className="buttonDash">
+        <Link className="link" href="/dashboard/attendencerate/AttendenceRate">
           <BiBarChart className="dashIcons" />
-          Attendence Rate
-        </button>
+          <p>Attendence Rate</p>
         </Link>
       </div>
     </div>

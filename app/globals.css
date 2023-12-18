@@ -13,12 +13,16 @@
 }
 
 .header {
+  background-color: #08243a;
   background-color: var(--black-color);
+  display: flex;
+  justify-content: space-between;
   font-size: 1.2rem;
   font-family: sans-serif, cursive;
+  height: 10vh;
 }
 
-.header button{
+.header button {
   border: none;
 }
 
@@ -41,16 +45,17 @@ nav ul li {
 }
 
 .logo {
-  margin: 2rem 0.5rem;
   color: var(--second-color);
   font-size: 1.8rem;
   text-decoration: none;
+  padding-left: 1.2rem;
+  padding-top: 0.4rem;
 }
 
-/* .home {
-  display: flex;
-  justify-content: center;
-} */
+.coder {
+  color: rgba(61, 116, 69, 0.952);
+  font-weight: 600;
+}
 
 .auth {
   background-color: black;
@@ -114,14 +119,8 @@ button {
   margin-top: 0.3rem;
 }
 
-.link{
+.link {
   text-decoration: none;
-}
-
-.dash {
-  text-align: center;
-  align-items: center;
-  margin-top: 1.3rem;
 }
 
 .dashText {
@@ -133,10 +132,6 @@ button {
 
 .menuDownText {
   margin-bottom: 1rem;
-}
-
-.dashIcon {
-  margin-top: 0.32rem;
 }
 
 .signout {
@@ -211,7 +206,7 @@ button {
     width: 40%;
   }
   .logo {
-    margin: 1rem 0.4rem;
+    margin: 0.3rem 0.4rem;
   }
 }
 
@@ -221,7 +216,7 @@ button {
   width: 100%;
   display: grid;
   margin-top: 1rem;
- grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 }
 
@@ -307,49 +302,129 @@ p {
   .studentHaye {
     width: 90%;
   }
-  .classes{
+  .classes {
     width: 100%;
   }
 }
 
 .dash {
-  margin-top: 0.35rem;
-  margin-left: 4rem;
+  width: 15%;
+  height: 100vh;
+  align-items: center;
+  text-align: center;
+  background-color: white;
+  box-shadow: 10px 10px 20px 30px rgba(0, 0, 0, 0.2);
+  margin-right: 1.2rem;
 }
 
 .btnsDash {
-  width: 80%;
-  margin-left: 3rem;
-  margin: auto;
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  border-radius: 12px;
-  gap: 1.8rem;
+  justify-content: space-between;
+  place-items: center;
+  place-self: center;
+  grid-template-rows: repeat(7, 1fr);
+  margin: 1rem 0;
 }
 
-.buttonDash {
-  background: none;
+.btnsDash p {
+  color: black;
+  font-weight: 600;
+  flex-wrap: wrap;
+}
+
+.link {
+  margin-bottom: 0.3rem;
+}
+
+.d {
+  font-size: 2.5rem;
+  color: rgba(61, 116, 69, 0.952);
+  text-align: center;
+  margin-left: 1.5rem;
+}
+
+.classesicon {
+  margin-left: 0.5rem;
+}
+
+.dashIcons {
+  text-align: center;
+  font-size: 2rem;
+  margin-left: 3rem;
+  color: var(--main-color);
+  color: rgba(61, 116, 69, 0.952);
+}
+
+.att {
+  margin-left: 3.9rem;
+}
+
+/* so muuqashada spanyada */
+
+.classesWrapper {
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.iconContainer {
   display: flex;
-  justify-content: center;
-  flex-direction: column;
   align-items: center;
-  color: var(--second-color);
+}
+
+.classesicon {
+  margin-right: 5px;
+}
+
+.showclasses {
+  margin-top: 10px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.showclasses.show {
+  opacity: 1;
+  max-height: 200px; /* Adjust the value to the desired maximum height */
+  transition: opacity 0.3s, max-height 0.5s ease-in-out;
+}
+
+.showclasses {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  place-items: center;
+  place-self: center;
   margin: 0;
   padding: 0;
 }
 
-.classDash {
-  margin-bottom: 1rem;
-}
+/* end spans shows */
 
-.dashIcons {
-  font-size: 2.5rem;
-  color: var(--main-color);
+.showclasses span {
+  color: rgba(61, 116, 69, 0.952);
 }
 
 @media (max-width: 900px) {
   .btnsDash {
-    display: none;
+    display: grid;
+    justify-content: space-between;
+    place-items: center;
+    place-self: center;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .classesicon {
+    margin-left: 4rem;
+  }
+  .dash {
+    width: 80%;
+    height: 30vh;
+    align-items: center;
+    text-align: center;
+    background-color: white;
+    box-shadow: 10px 10px 20px 20px rgba(0, 0, 0, 0.2);
+    margin-right: 1.2rem;
+    margin-top: 1.2rem;
   }
 }
 
@@ -357,7 +432,6 @@ p {
   position: relative;
   width: 90%;
   text-align: center;
-  background-color: rgba(61, 116, 69, 0.767);
   background-color: rgba(61, 116, 69, 0.952);
   margin: auto;
   padding: 1rem;
@@ -454,8 +528,6 @@ p {
   border-radius: 12px;
   font-size: 10rem;
 }
-
-
 
 /* Loader */
 
@@ -729,15 +801,6 @@ input {
   border-radius: 12px;
 }
 
-/* .modalContent span{
- background-color: black;
- color: white;
- border-radius: 12px;
- padding: 2px;
- font-size: 1.8rem;
- cursor: pointer;
-} */
-
 @media (max-width: 900px) {
   .modal {
     position: absolute;
@@ -748,74 +811,88 @@ input {
 }
 
 .dashDIsplay {
-  width: 90%;
+  width: 100%;
   display: flex;
-  margin: auto;
   justify-content: center;
 }
 
-.dashClass{
+.dashClass {
   width: 100%;
   margin-top: 2rem;
+  margin-right: 0.5rem;
 }
 
-.currentDate{
+.currentDate {
   background-color: #08243a;
   background-color: black;
   border-radius: 8px;
   color: white;
-}
-
-.header{
-  background-color: #08243a;
 }
 
 .userDisplay {
-  display: grid;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
   color: black;
-  width: 40%;
-  padding: 0.40rem 0.9rem;
+  padding: 0.4rem 0.9rem;
   border-radius: 8px;
-  margin-right: 4rem;
+  margin-right: 1rem;
 }
 
-.date{
+.userInfo {
+  cursor: pointer;
+  z-index: 999;
+  background-color: white;
+  padding: 1rem 0.3rem;
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 100%;
+  right: 5%;
+}
+
+.date {
   display: flex;
 }
 
-.userImage{
-  width: 40%;
-  height: 25vh;
+.userImage {
+  cursor: pointer;
+  width: 50%;
+  height: 8vh;
   display: block;
-  margin-right: 0.40rem;
+  margin-right: 0.4rem;
 }
 
-.userDisplay h1{
+.userDisplay h1 {
   display: block;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: 600;
 }
-.userDisplay h2 ,span{
+.userDisplay h2,
+span {
   margin-top: 0;
 }
 
-.signoutUser button{
+.username {
+  color: rgba(61, 116, 69, 0.952);
+}
+
+.signoutUser button {
   background-color: black;
   color: white;
   width: 40%;
   margin-top: 0;
 }
 
-
 @media (max-width: 900px) {
-  .dashDIsplay{
+  .dashDIsplay {
     width: 100%;
     flex-wrap: wrap;
   }
-  .userDisplay{
-    width: 70%;
+  .userDisplay {
+    margin-left: 0;
   }
-  .dashClass{
+
+  .dashClass {
     width: 100%;
   }
 }
