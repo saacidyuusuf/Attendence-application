@@ -12,7 +12,7 @@ const ClassNames = ({ classesData }) => {
 
   return (
     <>
-    <DashBtns/>
+      <DashBtns />
       <div className="dashClass">
         <div className="date">
           <h1 className="dashText">Dashboard</h1>

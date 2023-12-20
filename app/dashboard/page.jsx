@@ -30,7 +30,7 @@ console.log(user);
 
   return (
     <>
-        <Nav />
+    <Nav/>
         <div className="dashDIsplay">
           <Classes />
         </div>

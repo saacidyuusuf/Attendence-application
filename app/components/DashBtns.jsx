@@ -13,44 +13,43 @@ import Link from "next/link";
 import { useState } from "react";
 import { useContext } from "react";
 import { ContextHaye } from "../context/context";
+import Classeslist from "@/utills/classeslist";
+import Attendencelist from "@/utills/attendencelist";
 /* XMLHttpRequestEventTarget
  */
 const DashBtns = () => {
-  const [clicked, setclicked] = useState(false);
-  const {totalclasses,dataClass} = useContext(ContextHaye)
+  const [classes, setclasses] = useState(false);
+  const [attendence, setattendence] = useState(false);
+  const { dataClass } = useContext(ContextHaye);
   return (
     <div className="dash">
       <div className="btnsDash">
         <Link className="link" href="/dashboard">
-          <BiHomeAlt className="d" />
+          <BiHomeAlt className="classesicon" />
           <p>Dashboard</p>
         </Link>
-        <div className="Container" onClick={() => setclicked(!clicked)}>
-          <div className="attendanceContainer">
-            <BiCoinStack className="d classesicon" />
-            <p>Classes <span className="classesLength">{dataClass.length}</span></p>
+        <div className="Container" onClick={() => setclasses(!classes)}>
+          <div className="classesContainer">
+            <BiCoinStack className="d " />
+            <p>Classes</p>
+            <span className="classesLength">
+              {dataClass ? dataClass.length : 0}
+            </span>
           </div>
-          {clicked && (
-            <div className="showclasses">
-              <Link href="/F4">
-                <span>Class F4</span>
-              </Link>
-              <span>Class F3</span>
-              <span>Class F2</span>
-            </div>
-          )}
+          {classes && <Classeslist />}
         </div>
-        <Link
-          className="link"
-          href="/dashboard/StudentAttendence/studentAttendence"
-        >
-          <BiBookOpen
-            className={`dashIcons att ${clicked ? "shift-down" : ""}`}
-          />
-          <p className={`attendanceText ${clicked ? "shift-down" : ""}`}>
-            Student Attendence
-          </p>
-        </Link>
+
+        <div
+          className="attendenceContainer"
+          onClick={() => setattendence(!attendence)} >
+          <BiBookOpen className={`dashIcons att`} />
+          <p>Student Attendence</p>
+          <span className="attendenceLength">
+            {dataClass ? dataClass.length : 0}
+          </span>
+          {attendence && <Attendencelist />}
+        </div>
+
         <Link className="link" href="/dashboard/timetable/TimeTable">
           <BiSolidDashboard className="dashIcons" />
           <p>TimeTable Period</p>
@@ -65,7 +64,7 @@ const DashBtns = () => {
         </Link>
       </div>
     </div>
-  );
+  )
 };
 
 export default DashBtns;
